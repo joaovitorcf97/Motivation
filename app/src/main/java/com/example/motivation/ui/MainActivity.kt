@@ -10,6 +10,7 @@ import com.example.motivation.R
 import com.example.motivation.data.Mock
 import com.example.motivation.infra.SecurityPreferences
 import com.example.motivation.databinding.ActivityMainBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -49,7 +50,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handlerNextPhrase() {
-        val phrase = Mock().getPhrase(categoryId)
+
+        val phrase = Mock().getPhrase(categoryId, Locale.getDefault().language)
         binding.textPhrase.text = phrase
     }
 
